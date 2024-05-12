@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 @Database(entities = [Record::class], version = 1, exportSchema = false)
 abstract class HydroDatabase : RoomDatabase() {
 
-    abstract fun Dao(): Dao
+    abstract fun recordDao(): RecordDao
 
     companion object {
         @Volatile
