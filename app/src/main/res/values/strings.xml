@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">VAMZ Hydro</string>
+    <string name="app_name">Hydro</string>
+    <string name="button_back">Back</string>
+    <string name="add_record">New record</string>
+    <string name="history">History</string>
+    <string name="edit_record">Edit</string>
+    <string name="settings">Settings</string>
+    <string name="no_record">No records yet...</string>
 </resources>
