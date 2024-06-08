@@ -1,9 +1,17 @@
 package com.example.vamzhydro.screens
 
-import com.example.vamzhydro.R
-import com.example.vamzhydro.navigation.NavigationRoute
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.navigation.NavController
 
-object AddRecordDestination : NavigationRoute {
-    override val route = "add_record"
-    override val title = R.string.add_record
-}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun AddRecordScreen(
+    navController: NavController,
+    //navigateToItemEntry: () -> Unit,
+    //navigateToItemUpdate: (Int) -> Unit,
+    modifier: Modifier = Modifier,
+    //viewModel: HomeViewModel = viewModel()
+) {}

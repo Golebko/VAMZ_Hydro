@@ -29,11 +29,12 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 //import com.example.vamzhydro.navigation.HydroNavHost
 import com.example.vamzhydro.R.string
+import com.example.vamzhydro.navigation.HydroNavGraph
 
 
 @Composable
 fun HydroApp(navController: NavHostController = rememberNavController()) {
-    //HydroNavHost(navController = navController)
+    HydroNavGraph(navController = navController)
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

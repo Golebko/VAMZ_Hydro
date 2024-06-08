@@ -38,26 +38,25 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.vamzhydro.BottomNavBar
 import com.example.vamzhydro.R
 import com.example.vamzhydro.TopBar
 import com.example.vamzhydro.data.RecordItem
-import com.example.vamzhydro.navigation.NavigationRoute
+import com.example.vamzhydro.navigation.Screen
 import com.example.vamzhydro.ui.theme.AppTheme
 
-object HomeScreen : NavigationRoute {
-    override val route = "home"
-    override val title = R.string.app_name
-}
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
-    navigateToItemEntry: () -> Unit,
-    navigateToItemUpdate: (Int) -> Unit,
+    navController: NavController,
+    //navigateToItemEntry: () -> Unit,
+    //navigateToItemUpdate: (Int) -> Unit,
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModel = viewModel()
+    //viewModel: HomeViewModel = viewModel()
 ) {
-    val homeState by viewModel.homeState.collectAsState()
+    //val homeState by viewModel.homeState.collectAsState()
     val scrollBehavior = TopAppBarDefaults.enterAlwaysScrollBehavior()
 
 
@@ -65,7 +64,7 @@ fun HomeScreen(
         modifier = modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
         topBar = {
             TopBar(
-                title = stringResource(HomeScreen.title),
+                title = "aaaaa",
                 canNavigateBack = false,
                 scrollBehavior = scrollBehavior
             )
@@ -76,7 +75,7 @@ fun HomeScreen(
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = navigateToItemEntry,
+                onClick = { navController.navigate(route = Screen.AddRecord.route)} ,
                 shape = MaterialTheme.shapes.medium,
                 modifier = Modifier
                     .padding(
@@ -86,14 +85,15 @@ fun HomeScreen(
             ) {
                 /*Icon(
                     imageVector = Icons.Default.Add,
-                    //contentDescription = stringResource(R.string.item_entry_title)
+                    contentDescription = stringResource(R.string.item_entry_title)
                 )*/
             }
         },
     ) { innerPadding ->
         HomeBody(
-            itemList = homeState.itemList,
-            onItemClick = navigateToItemUpdate,
+            itemList = listOf(
+                RecordItem(1, "12.5.",  "15:22",300), RecordItem(2, "Pen", "222",200)
+            ), onItemClick = {},
             modifier = modifier.fillMaxSize(),
             contentPadding = innerPadding,
         )
